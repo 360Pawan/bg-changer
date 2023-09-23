@@ -25,12 +25,19 @@ function App(): JSX.Element {
     setRandomColor(newColor);
   };
 
+  const resetColor = () => {
+    setRandomColor('rgb(32,32,32)');
+  };
+
   return (
     <>
       <StatusBar backgroundColor={randomColor} />
       <View style={[styles.container, {backgroundColor: randomColor}]}>
         <TouchableOpacity onPress={generateColor}>
           <Text style={styles.text}>Tap me</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={resetColor}>
+          <Text style={styles.resetButton}>Reset</Text>
         </TouchableOpacity>
       </View>
     </>
@@ -44,6 +51,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    gap: 20,
   },
 
   text: {
@@ -51,6 +59,14 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     paddingHorizontal: 40,
     backgroundColor: '#000',
+    borderRadius: 10,
+  },
+
+  resetButton: {
+    color: '#000',
+    paddingVertical: 15,
+    paddingHorizontal: 40,
+    backgroundColor: '#fff',
     borderRadius: 10,
   },
 });
